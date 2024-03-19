@@ -1,0 +1,48 @@
+// Teste da API Rest de prestadores
+
+@baseURL = http://localhost:4000/api/prestadores
+
+###
+# GET - Lista todos os prestadores
+GET {{baseURL}}/?limit=10&skip=0
+Content-Type: application/json
+
+###
+# GET - Lista o prestador pelo ID
+GET {{baseURL}}/id/65efaa808dfe330620da671d
+Content-Type: application/json
+
+###
+# GET - Lista o prestador pela razão social
+GET {{baseURL}}/razao/2
+Content-Type: application/json
+
+###
+# DELETE - Remove o prestador
+DELETE {{baseURL}}/65efaa754624b2aeaaf09b85
+Content-Type: application/json
+
+###
+# POST - Insere um novo prestador
+POST {{baseURL}}
+Content-Type: application/json
+
+{
+    "cnpj": "13938578000157",
+    "razao_social": "CHACARA SAO GABRIEL 56 LTDA",
+    "cep": "18160000",
+    "endereco": {
+        "logradouro": "Av. Gentil Vieira de Medeiros",
+        "numero": "2010",
+        "bairro": "Piraporao",
+        "cidade": "Salto de Pirapora",
+        "uf": "SP"
+    },
+    "cnae_fiscal": 321453,
+    "nome_fantasia": "Chacara Sao Gabriel",
+    "data_inicio_atividade": "2011-05-01",
+    "localizacao": {
+        "type": "Point",
+        "coordinates": [-23.2904, -47.2963]
+    }
+}
