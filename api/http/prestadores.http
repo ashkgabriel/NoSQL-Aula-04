@@ -46,3 +46,32 @@ Content-Type: application/json
         "coordinates": [-23.2904, -47.2963]
     }
 }
+
+###
+# PUT - Altera um prestador (pelo _id)
+PUT {{baseURL}}
+Content-Type: application/json
+
+{           
+    "_id": "65f8e2ad720d1484141fe7b1",
+    "cnpj": "13938578000157",
+    "razao_social": "CHACARA SAO GABRIEL 6 LTDA",
+    "cep": "18160000",
+    "endereco": {
+      "logradouro": "Av. Teste",
+      "numero": "2010",
+      "bairro": "Piraporao",
+      "cidade": "Salto de Pirapora",
+      "uf": "SP"
+    },
+    "cnae_fiscal": 321453,
+    "nome_fantasia": "Chacara Sao Gabriel",
+    "data_inicio_atividade": "2011-05-01",
+    "localizacao": {
+      "type": "Point",
+      "coordinates": [
+        -23.2904,
+        -47.2963
+      ]
+    }
+  }

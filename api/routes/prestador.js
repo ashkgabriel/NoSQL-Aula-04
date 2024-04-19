@@ -11,13 +11,17 @@ const validaPrestador = [
         .not().isEmpty().trim().withMessage('É obrigatório informar o CNPJ.')
         .isNumeric().withMessage('O CNPJ deve ter apenas números.')
         .isLength({ min: 14, max: 14 }).withMessage('O CNPJ deve ter 14 números.')
-        .custom(async (cnpj) => {
+        .custom(async (cnpj, { req }) => {
             const contaPrestador = await db.collection(nomeCollection)
-                .countDocuments({ 'cnpj': cnpj })
+                .countDocuments({
+                    'cnpj': cnpj,
+                    '_id': { $ne: new ObjectId(req.body._id) } // Exclui o documento atual
+                })
             if (contaPrestador > 0) {
                 throw new Error('O CNPJ informado já está cadastrado.')
             }
-        }),
+        })
+    ,
 
     check('razao_social')
         .not().isEmpty().trim().withMessage('A razão social é um campo obrigatório.')
@@ -184,6 +188,35 @@ router.post('/', validaPrestador, async (req, res) => {
         res.status(201).json(prestador) // 201 é o status created
     } catch (err) {
         res.status(500).json({ message: `${err.message} Server Error.` })
+    }
+})
+
+/*
+* PUT /api/prestadores
+* Altera um prestador de serviço pelo _id
+* Parametros: Objeto prestador
+*/
+
+router.put('/', validaPrestador, async (req, res) => {
+    let idDocumento = req.body._id // Armazenamos o _id do documento
+    delete req.body._id // Removemos o _id do body que foi recebido na req.
+
+    try {
+        // if (req.method === 'PUT') {
+        //     // Ignora a validação do CNPJ
+        //     req.check('cnpj').skip.if(idDocumento)
+        // }
+
+        const errors = validationResult(req)
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() })
+        }
+        const prestador = await db.collection(nomeCollection)
+            .updateOne({ '_id': { $eq: new ObjectId(idDocumento) } },
+                { $set: req.body })
+        res.status(202).json(prestador) // Accepted
+    } catch (err) {
+        res.status(500).json({ errors: err.message })
     }
 })
 
