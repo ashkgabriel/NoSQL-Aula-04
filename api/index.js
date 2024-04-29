@@ -1,6 +1,7 @@
 import { config } from "dotenv";
 import express from 'express';
 import RotasPrestadores from './routes/prestador.js';
+import RotasUsuarios from './routes/usuario.js';
 
 config() // Carrega as variáveis do .env 
 
@@ -18,7 +19,7 @@ app.disable('x-powered-by')
 // Configurando o favicon
 app.use('/favicon.ico', express.static('./public/images/logo-api.png'))
 
-// Rora default
+// Rota default
 app.get('/api', (req, res) => {
     res.status(200).json({
         message: 'API FATEC 100% funcional 🚀',
@@ -34,3 +35,4 @@ app.listen(PORT, function () {
 
 // Rotas da API
 app.use('/api/prestadores', RotasPrestadores)
+app.use('/api/usuarios', RotasUsuarios)
