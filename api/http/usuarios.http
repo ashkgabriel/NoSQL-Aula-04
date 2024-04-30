@@ -8,6 +8,10 @@ Content-Type: application/json
 
 {
     "nome": "José Lima Alves",
-    "email": "josealves@uol.com.br",
-    "senha": "123Mudar"
+    "email": "joseaalves@uol.com.br",
+    "senha": "123Mudar!"
 }
+
+###
+GET {{baseURL}}
+Content-Type: application/json
