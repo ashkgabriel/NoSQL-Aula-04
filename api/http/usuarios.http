@@ -1,5 +1,4 @@
-// Teste do endpoint dos usuarios
-
+// Teste do endpoint dos usuários
 @baseURL = http://localhost:4000/api/usuarios
 
 ###
@@ -8,10 +7,22 @@ Content-Type: application/json
 
 {
     "nome": "José Lima Alves",
-    "email": "joseaalves@uol.com.br",
-    "senha": "123Mudar!"
+    "email": "josealves3@uol.com.br",
+    "senha": "Alun0$"
 }
 
 ###
+// GET - Lista todos os usuários
 GET {{baseURL}}
 Content-Type: application/json
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY0MjkzODY4MzE1YTc1YzZkM2Q0ODgxIn0sImlhdCI6MTcxNTY0MDI5MCwiZXhwIjoxNzE1NzI2NjkwfQ.3Ne2gPNk55ttR0zfyEG0PKPiLm2ooFYkcOpGhgBOS9M
+
+###
+// POST - Efetua o login
+POST {{baseURL}}/login
+Content-Type: application/json
+
+{
+    "email": "josealves3@uol.com.br",
+    "senha": "Alun0$"
+}

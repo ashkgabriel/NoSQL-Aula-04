@@ -1,5 +1,6 @@
 
-const urlBase = 'http://localhost:4000/api'
+const urlBase = window.location.href.replace(/\/[^\/]*$/, '') + '/api'
+const access_token = localStorage.getItem('token') || null
 const resultadoModal = new bootstrap.Modal(document.getElementById('modalMensagem'))
 
 async function carregaPrestadores() {
@@ -9,7 +10,8 @@ async function carregaPrestadores() {
     await fetch(`${urlBase}/prestadores`, {
         method: 'GET',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'access-token': access_token
         }
     })
         .then(response => response.json())
@@ -36,7 +38,8 @@ async function removePrestador(id) {
         await fetch(`${urlBase}/prestadores/${id}`, {
             method: 'DELETE',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'access-token': access_token
             }
         })
             .then(response => response.json())
@@ -87,7 +90,8 @@ async function salvaPrestador(prestador) {
     await fetch(`${urlBase}/prestadores`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'access-token': access_token
         },
         body: JSON.stringify(prestador)
     })
