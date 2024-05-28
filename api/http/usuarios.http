@@ -2,27 +2,29 @@
 @baseURL = http://localhost:4000/api/usuarios
 
 ###
+# @prompt senha
 POST {{baseURL}}
 Content-Type: application/json
 
 {
     "nome": "José Lima Alves",
     "email": "josealves3@uol.com.br",
-    "senha": "Alun0$"
+    "senha": "{{senha}}"
 }
 
 ###
 // GET - Lista todos os usuários
 GET {{baseURL}}
 Content-Type: application/json
-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY0MjkzODY4MzE1YTc1YzZkM2Q0ODgxIn0sImlhdCI6MTcxNTY0MDI5MCwiZXhwIjoxNzE1NzI2NjkwfQ.3Ne2gPNk55ttR0zfyEG0PKPiLm2ooFYkcOpGhgBOS9M
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY0MjkzODY4MzE1YTc1YzZkM2Q0ODgxIn0sImlhdCI6MTcxNjI0NjI4NywiZXhwIjoxNzE2MzMyNjg3fQ.Ad7gWm-VTkVK6U769urFjSZVhVm929It49GxrhotF-Q
 
 ###
+# @prompt senha
 // POST - Efetua o login
 POST {{baseURL}}/login
 Content-Type: application/json
 
 {
     "email": "josealves3@uol.com.br",
-    "senha": "Alun0$"
+    "senha": "{{senha}}"
 }

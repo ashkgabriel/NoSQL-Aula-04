@@ -6,10 +6,11 @@
 # GET - Lista todos os prestadores
 GET {{baseURL}}/?limit=10&skip=0
 Content-Type: application/json
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY0MjkzODY4MzE1YTc1YzZkM2Q0ODgxIn0sImlhdCI6MTcxNjg0OTM5NywiZXhwIjoxNzE2OTM1Nzk3fQ.JCag1AtlPYglRBxMQwjkZJMRCXLLYhHOmEK_7dPnVQg
 
 ###
 # GET - Lista o prestador pelo ID
-GET {{baseURL}}/id/65efaa808dfe330620da671d
+GET {{baseURL}}/id/65ef9588fa0477e499de2d8a
 Content-Type: application/json
 
 ###
@@ -19,16 +20,19 @@ Content-Type: application/json
 
 ###
 # DELETE - Remove o prestador
-DELETE {{baseURL}}/65efaa754624b2aeaaf09b85
+DELETE {{baseURL}}/664bedf6b44960ca18567ed3
 Content-Type: application/json
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY0MjkzODY4MzE1YTc1YzZkM2Q0ODgxIn0sImlhdCI6MTcxNjg0OTM5NywiZXhwIjoxNzE2OTM1Nzk3fQ.JCag1AtlPYglRBxMQwjkZJMRCXLLYhHOmEK_7dPnVQg
 
 ###
 # POST - Insere um novo prestador
 POST {{baseURL}}
 Content-Type: application/json
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY0MjkzODY4MzE1YTc1YzZkM2Q0ODgxIn0sImlhdCI6MTcxNjg0OTM5NywiZXhwIjoxNzE2OTM1Nzk3fQ.JCag1AtlPYglRBxMQwjkZJMRCXLLYhHOmEK_7dPnVQg
+
 
 {
-    "cnpj": "13938578000157",
+    "cnpj": "13938578000158",
     "razao_social": "CHACARA SAO GABRIEL 56 LTDA",
     "cep": "18160000",
     "endereco": {
@@ -51,11 +55,12 @@ Content-Type: application/json
 # PUT - Altera um prestador (pelo _id)
 PUT {{baseURL}}
 Content-Type: application/json
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjY0MjkzODY4MzE1YTc1YzZkM2Q0ODgxIn0sImlhdCI6MTcxNjg0OTM5NywiZXhwIjoxNzE2OTM1Nzk3fQ.JCag1AtlPYglRBxMQwjkZJMRCXLLYhHOmEK_7dPnVQg
 
 {           
-    "_id": "65f8e2ad720d1484141fe7b1",
+    "_id": "66550ab29240256bc588ab58",
     "cnpj": "13938578000157",
-    "razao_social": "CHACARA SAO GABRIEL 6 LTDA",
+    "razao_social": "CHACARA SAO GABRIEL LTDA",
     "cep": "18160000",
     "endereco": {
       "logradouro": "Av. Teste",
